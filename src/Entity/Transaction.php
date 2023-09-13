@@ -23,6 +23,12 @@ class Transaction
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_transaction = null;
 
+    #[ORM\ManyToOne(inversedBy: 'transaction')]
+    private ?Forfait $forfait = null;
+
+    #[ORM\ManyToOne(inversedBy: 'transaction')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +66,30 @@ class Transaction
     public function setDateTransaction(\DateTimeInterface $date_transaction): static
     {
         $this->date_transaction = $date_transaction;
+
+        return $this;
+    }
+
+    public function getForfait(): ?Forfait
+    {
+        return $this->forfait;
+    }
+
+    public function setForfait(?Forfait $forfait): static
+    {
+        $this->forfait = $forfait;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

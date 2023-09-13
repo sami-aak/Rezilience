@@ -22,6 +22,9 @@ class Contenu
     #[ORM\Column(length: 255)]
     private ?string $lien_fichier = null;
 
+    #[ORM\ManyToOne(inversedBy: 'contenus')]
+    private ?Module $module = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Contenu
     public function setLienFichier(string $lien_fichier): static
     {
         $this->lien_fichier = $lien_fichier;
+
+        return $this;
+    }
+
+    public function getModule(): ?Module
+    {
+        return $this->module;
+    }
+
+    public function setModule(?Module $module): static
+    {
+        $this->module = $module;
 
         return $this;
     }
