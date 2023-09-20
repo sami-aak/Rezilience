@@ -45,17 +45,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $exp_pro = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_creation = null;
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
+    private \DateTimeImmutable $date_creation;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_maj = null;
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable:true)]
+    private ?\DateTimeImmutable $date_maj = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_connexion = null;
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable:true)]
+    private ?\DateTimeImmutable $date_connexion;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $expiration_abonnement = null;
+    #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable:true)]
+    private ?\DateTimeImmutable $expiration_abonnement;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Transaction::class)]
     private Collection $transaction;
@@ -67,6 +67,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->transaction = new ArrayCollection();
         $this->module = new ArrayCollection();
+        $this->date_creation = new \DateTimeImmutable();        
+        $this->date_maj = new \DateTimeImmutable();        
+        $this->date_connexion = new \DateTimeImmutable();       
+        $this->expiration_abonnement = new \DateTimeImmutable();       
     }
 
     public function getId(): ?int
@@ -199,48 +203,48 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getDateCreation(): ?\DateTimeInterface
+    public function getDateCreation(): \DateTimeImmutable
     {
         return $this->date_creation;
     }
 
-    public function setDateCreation(\DateTimeInterface $date_creation): static
+    public function setDateCreation(\DateTimeImmutable $date_creation): self
     {
         $this->date_creation = $date_creation;
 
         return $this;
     }
 
-    public function getDateMaj(): ?\DateTimeInterface
+    public function getDateMaj(): ?\DateTimeImmutable
     {
         return $this->date_maj;
     }
 
-    public function setDateMaj(\DateTimeInterface $date_maj): static
+    public function setDateMaj(): self
     {
-        $this->date_maj = $date_maj;
+        $this->date_maj = new \DateTimeImmutable;
 
         return $this;
     }
 
-    public function getDateConnexion(): ?\DateTimeInterface
+    public function getDateConnexion(): ?\DateTimeImmutable
     {
         return $this->date_connexion;
     }
 
-    public function setDateConnexion(\DateTimeInterface $date_connexion): static
+    public function setDateConnexion(\DateTimeImmutable $date_connexion): static
     {
         $this->date_connexion = $date_connexion;
 
         return $this;
     }
 
-    public function getExpirationAbonnement(): ?\DateTimeInterface
+    public function getExpirationAbonnement(): ?\DateTimeImmutable
     {
         return $this->expiration_abonnement;
     }
 
-    public function setExpirationAbonnement(\DateTimeInterface $expiration_abonnement): static
+    public function setExpirationAbonnement(\DateTimeImmutable $expiration_abonnement): static
     {
         $this->expiration_abonnement = $expiration_abonnement;
 
