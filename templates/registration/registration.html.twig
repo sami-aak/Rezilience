@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-md-8 text-center" style="padding: 30px 30px; border: 1px solid #3A3B3A; border-radius: 10px;">
+            <h1 class="h2 mb-3 font-weight-normal text-center">Inscription</h1>
+            {{ form_start(registrationForm) }}
+                <div class="form-outline mb-4">
+                {{ form_row(registrationForm.nom) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(registrationForm.prenom) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(registrationForm.email) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(registrationForm.plainPassword) }}  
+                </div>      
+                <div class="form-outline mb-4">
+                {{ form_row(registrationForm.date_de_naissance) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(registrationForm.domaine_activite) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(registrationForm.exp_pro) }}
+                </div>
+                <button class="btn btn-lg btn-primary" type="submit" style="background-color: #FFD121; color: #3A3B3A;">S'inscrire</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

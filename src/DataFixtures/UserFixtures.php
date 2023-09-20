@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use DateTimeImmutable;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -76,10 +77,10 @@ class UserFixtures extends Fixture
             $user->setPassword($password);
             $user->setDomaineActivite($userData['domaine_activite']);
             $user->setExpPro($userData['exp_pro']);
-            $user->setDateCreation(new \DateTime($userData['date_creation']));
-            $user->setDateMaj(new \DateTime($userData['date_maj']));
-            $user->setDateConnexion(new \DateTime($userData['date_connexion']));
-            $user->setExpirationAbonnement(new \DateTime($userData['expiration_abonnement']));
+            $user->setDateCreation(new DateTimeImmutable($userData['date_creation']));
+            // $user->setDateMaj(new DateTimeImmutable($userData['date_maj']));
+            $user->setDateConnexion(new DateTimeImmutable($userData['date_connexion']));
+            $user->setExpirationAbonnement(new DateTimeImmutable($userData['expiration_abonnement']));
                         
             $manager->persist($user);
         }
