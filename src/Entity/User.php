@@ -48,13 +48,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private \DateTimeImmutable $date_creation;
 
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable:true)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $date_maj = null;
 
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable:true)]
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $date_connexion;
 
-    #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable:true)]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $expiration_abonnement;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Transaction::class)]
@@ -67,10 +67,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->transaction = new ArrayCollection();
         $this->module = new ArrayCollection();
-        $this->date_creation = new \DateTimeImmutable();        
-        $this->date_maj = new \DateTimeImmutable();        
-        $this->date_connexion = new \DateTimeImmutable();       
-        $this->expiration_abonnement = new \DateTimeImmutable();       
+        $this->date_creation = new \DateTimeImmutable();
+        $this->date_maj = new \DateTimeImmutable();
+        $this->date_connexion = new \DateTimeImmutable();
+        $this->expiration_abonnement = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -222,7 +222,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setDateMaj(): self
     {
-        $this->date_maj = new \DateTimeImmutable;
+        $this->date_maj = new \DateTimeImmutable();
 
         return $this;
     }
