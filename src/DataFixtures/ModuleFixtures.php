@@ -29,6 +29,11 @@ class ModuleFixtures extends Fixture
             ],
             [
               // "module_id" => "1",
+              'nom_module' => "Avoir confiance en soi",
+              'description_module' => 'lorem ipsum',
+            ],
+            [
+              // "module_id" => "1",
               'nom_module' => "Communiquer efficacement",
               'description_module' => 'lorem ipsum',
             ],
@@ -49,4 +54,3 @@ class ModuleFixtures extends Fixture
         $manager->flush();
     }
 }
-
