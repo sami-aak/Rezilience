@@ -21,9 +21,13 @@ class ModuleRepository extends ServiceEntityRepository
         parent::__construct($registry, Module::class);
     }
 
-    //    /**
-    //     * @return Module[] Returns an array of Module objects
-    //     */
+       /**
+        * @return Module[] Returns an array of Module objects
+        */
+    
+    
+    
+    
     //    public function findByExampleField($value): array
     //    {
     //        return $this->createQueryBuilder('m')
