@@ -1,3 +1,19 @@
 .logo {
   height: 50px;
 }
+
+.text1 {
+  background-color: #3A3B3A;
+  border-radius: 15px;
+  color: white;
+  min-height: 300px;
+  min-width: 200px;
+}
+
+.videoo {
+  background-color: #FFD121;
+  border-radius: 15px;
+  color: #3A3B3A;
+  min-height: 300px;
+  min-width: 200px;
+}
