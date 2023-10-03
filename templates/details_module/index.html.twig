@@ -1,20 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DetailsModuleController!{% endblock %}
+{% block title %}Module {{module.id}}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<h1 class="text-center m-3">{{ module.nommodule }}</h1>
+	<div class="d-flex gap-3 justify-content-around m-5">
+		<div class="text1 d-flex justify-content-center align-items-center">
+			<p>{{module.descriptionmodule}}</p>
+		</div>
+		<div class="videoo d-flex justify-content-center align-items-center">
+			{% if module.contenus[0] is defined %}
+			<p>{{module.contenus[0].nomfichier}}</p>
+			{% endif %}
+		</div>
+	</div>	
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/samia/Desktop/HumanBooster/Stage/Projet Stage/rezilience/src/Controller/DetailsModuleController.php'|file_link(0) }}">src/Controller/DetailsModuleController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/samia/Desktop/HumanBooster/Stage/Projet Stage/rezilience/templates/details_module/index.html.twig'|file_link(0) }}">templates/details_module/index.html.twig</a></code></li>
-    </ul>
 </div>
 {% endblock %}

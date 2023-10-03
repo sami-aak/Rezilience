@@ -43,6 +43,7 @@ class DashboardController extends AbstractDashboardController
     {
         return Dashboard::new()
             ->setTitle('Rezilience');
+            
     }
 
     public function configureMenuItems(): iterable
@@ -53,6 +54,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Forfait', 'fas fa-list', Forfait::class);
         yield MenuItem::linkToCrud('Module', 'fas fa-list', Module::class);
         yield MenuItem::linkToCrud('Contenu', 'fas fa-list', Contenu::class);
+        yield MenuItem::linkToRoute("Retour à l'accueil", 'fa-solid fa-arrow-right-to-bracket', 'app_home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
