@@ -31,7 +31,7 @@ class ForfaitFixtures extends Fixture
         foreach ($forfaits as $key => $forfaitData) {
             $forfait = new Forfait();
             // $contenu->setforfait($contenuData['forfait_id']);
-            $forfait->setNomforfait($forfaitData['nom_forfait']);
+            $forfait->setNomForfait($forfaitData['nom_forfait']);
             $forfait->setPrix($forfaitData['prix']);
 
             $manager->persist($forfait);

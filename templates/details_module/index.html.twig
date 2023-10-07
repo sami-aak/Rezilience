@@ -6,13 +6,13 @@
 <div class="container">
 
 	<h1 class="text-center m-3">{{ module.nommodule }}</h1>
-	<div class="d-flex gap-3 justify-content-around m-5">
+	<div class="d-flex gap-5 justify-content-center m-5">
 		<div class="text1 d-flex justify-content-center align-items-center">
-			<p>{{module.descriptionmodule}}</p>
+			<p class="descr">{{module.descriptionmodule}}</p>
 		</div>
 		<div class="videoo d-flex justify-content-center align-items-center">
-			{% if module.contenus[0] is defined %}
-			<p>{{module.contenus[0].nomfichier}}</p>
+			{% if contenu.description is defined %}			
+			<p>{{contenu.description}}</p>
 			{% endif %}
 		</div>
 	</div>	

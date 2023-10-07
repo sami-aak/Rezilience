@@ -12,7 +12,7 @@ use App\Repository\ModuleRepository;
 #[IsGranted('ROLE_USER')]
 class ModulesController extends AbstractController
 {
-    private $moduleRepository;
+    private ModuleRepository $moduleRepository;
 
     public function __construct(ModuleRepository $moduleRepository)
     {
