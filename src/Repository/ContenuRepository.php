@@ -31,6 +31,7 @@ class ContenuRepository extends ServiceEntityRepository
             ->where('module.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
-            ->getOneOrNullResult();
+            // ->getOneOrNullResult();
+            ->getResult();
     }
 }

@@ -3,19 +3,65 @@
 {% block title %}Module {{module.id}}{% endblock %}
 
 {% block body %}
-<div class="container">
 
-	<h1 class="text-center m-3">{{ module.nommodule }}</h1>
-	<div class="d-flex gap-5 justify-content-center m-5">
-		<div class="text1 d-flex justify-content-center align-items-center">
-			<p class="descr">{{module.descriptionmodule}}</p>
+<div class="container">
+	<div class="d-flex gap-3 justify-content-center m-3">
+
+		<div class="bloc1 text-justify p-4">
+		<h5>{{module.id}} - {{module.nommodule}}</h5>
+		<p>{{module.descriptionmodule}}</p>
+		<p class="text-center">Cette formation est réutilisable :</p>
+		<h5 class="text-center">Votre coach <br> Laetitia Belin</h5>
+		<hr>
+		<p class="text-center">www.rezilience.fr</p>
 		</div>
-		<div class="videoo d-flex justify-content-center align-items-center">
-			{% if contenu.description is defined %}			
-			<p>{{contenu.description}}</p>
+
+		<div class="bloc2">
+			<div class="logos">
+			</div>
+			<h5>Explications :</h5>
+			<p class="fondjaune p-2">
+			La colonne de gauche résume les attendus de ce board. <br>
+			En dessous, découvrez les étapes de la séance et retrouvez-les en détail à droite ! <br>
+			Un board est infini, vous pouvez zoomer et dézoomer à votre guise. Les images peuvent s'ouvrir en grand écran, il suffit de double-cliquer dessus.
+			</p>
+			<h5>A vous de jouer !</h5>
+			{% if contenu[1].description is defined %}	
+			<div class="d-flex gap-2">
+				<div>
+					<p class="d-flex align-items-center carre p-2">{{contenu[1].description}}</p>
+					<p class="fondjaune">1 {{contenu[0].description}}</p>
+				</div>
+				<div>
+					<p class="d-flex align-items-center carre p-2">{{contenu[3].description}}</p>
+					<p class="fondjaune">2 {{contenu[2].description}}</p>
+				</div>
+			</div>
+			<div class="d-flex gap-2">
+				<div>
+					<p class="d-flex align-items-center carre p-2">{{contenu[5].description}}</p>
+					<p class="fondjaune">3 {{contenu[4].description}}</p>
+				</div>
+				<div>
+					<p class="d-flex align-items-center carre p-2">{{contenu[7].description}}</p>
+					<p class="fondjaune">4 {{contenu[6].description}}</p>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+
+		<div class="bloc3 p-3">
+			<h3>En détail :</h3>
+			{% if contenu[1].description is defined %}
+			<h4>a - {{contenu[9].description}}</h4>
+			<p>1 - {{contenu[0].description}}</p>
+			<p>2 - {{contenu[2].description}}</p>
+			<h4>b - {{contenu[9].description}}</h4>
+			<p>3 - {{contenu[0].description}}</p>
+			<p>4 - {{contenu[2].description}}</p>
 			{% endif %}
 		</div>
 	</div>	
-
 </div>
+
 {% endblock %}

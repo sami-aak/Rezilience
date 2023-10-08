@@ -2,22 +2,28 @@
   height: 50px;
 }
 
-.text1 {
-  background-color: #3A3B3A;
-  border-radius: 15px;
-  color: white;
-  min-height: 300px;
-  min-width: 200px;
+.bloc1 {
+  max-width: 300px;
+  min-height: 450px;
+  border: 2px solid rgb(197, 195, 195);
+  font-size: 12px;
 }
 
-.videoo {
-  background-color: #FFD121;
-  border-radius: 15px;
-  color: #3A3B3A;
-  min-height: 300px;
-  min-width: 200px;
+.fondjaune {
+  background-color: #f8d950ab;
 }
 
-.descr {
-  width: 150px;
+.carre {
+  width: 200px;
+  height: 130px;
+  border: 2px solid rgb(197, 195, 195);
+}
+
+.bloc3 {
+  min-width: 400px;
+  border: 2px solid rgb(197, 195, 195);
+}
+
+.bloc3 h4 {
+  color: #ffd121;
 }

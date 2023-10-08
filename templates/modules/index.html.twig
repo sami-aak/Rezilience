@@ -5,17 +5,16 @@
 {% block body %}
     <div class="container">   
         <div class="row gap-5 justify-content-center m-5">
-    {% for module in modules %}
-            <div class="card col-3 ">
+        {% for module in modules %}
+        <div class="card col-3 ">
             <img class="card-img-top" src="..." alt="">
-                <div class="card-body text-center">
-                    <h4>Module {{ module.id }}</h4>
-                    <h5 class="card-title">{{ module.nommodule }}</h5>
-                    <p class="card-text">{{ module.descriptionmodule }}</p>
-                    <a href="{{path('app_details_module_id', {id: module.id})}}" class="btn btn-primary">Accéder</a>
-                </div>
+            <div class="card-body text-center">
+                <h4>Module {{ module.id }}</h4>
+                <h5 class="card-title">{{ module.nommodule }}</h5>
+                <a href="{{path('app_details_module_id', {id: module.id})}}" class="btn btn-primary">Accéder</a>
             </div>
-    {% endfor %}
+        </div>
+        {% endfor %}
         </div> 
     </div>    
 {% endblock %}
