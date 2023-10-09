@@ -3,5 +3,19 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<a href="{{path('app_modules')}}" class="btn btn-lg btn-outline-dark p-3 m-5" role="button" aria-pressed="true">Liste des modules</a>
+<a href="{{path('app_modules')}}" class="btn btn-lg btn-outline-dark p-3 m-3" role="button" aria-pressed="true">Liste des modules</a>
+
+<div class="connexion d-flex m-2">
+  <div class="boutons d-flex flex-column justify-content-center align-items-center">
+  <h2>Connexion</h2>
+  <a href="" class="boutoncojaune text-center p-1 m-2">Avec Google</a>
+  <a href="" class="boutoncojaune text-center p-1 m-2">Avec Apple</a>
+  <a href="" class="boutoncojaune text-center p-1 m-2">Avec Facebook</a>
+  <a href="{{ path('app_login') }}" class="boutoncojaune text-center p-1 m-2">Avec Email</a>
+  </div>
+  <div class="carregris m-5">
+  <img src="{{ asset('img/logo3.png') }}" alt="fleur">
+  </div>
+</div>
+
 {% endblock %}
