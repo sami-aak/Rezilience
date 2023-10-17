@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-md-8 text-center" style="padding: 30px 30px; border: 1px solid #3A3B3A; border-radius: 10px;">
+            <h1 class="h2 mb-3 font-weight-normal text-center">Modification d'informations</h1>
+            {{ form_start(modificationForm) }}
+                <div class="form-outline mb-4">
+                {{ form_row(modificationForm.nom) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(modificationForm.prenom) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(modificationForm.email) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(modificationForm.plainPassword) }}  
+                </div>      
+                <div class="form-outline mb-4">
+                {{ form_row(modificationForm.date_de_naissance) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(modificationForm.domaine_activite) }}
+                </div>
+                <div class="form-outline mb-4">
+                {{ form_row(modificationForm.exp_pro) }}
+                </div>
+                <button class="btn btn-lg btn-primary" type="submit" style="background-color: #FFD121; color: #3A3B3A;">Modifier</button>
+            {{ form_end(modificationForm) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
