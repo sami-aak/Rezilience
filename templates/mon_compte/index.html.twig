@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="d-flex justify-content-around gap-5 m-3">
+        <div class="mesinfos">
+            {% for user in users %}
+            <h2>Informations</h2>
+            <p>Nom : {{ user.nom }}</p>
+            <p>Prénom : {{ user.prenom }}</p>
+            <p>Email : {{ user.email }}</p>
+            {# <p>Date de naissance : {{ user.datedenaissance }}</p> #}
+            <p>Domaine d'activité : {{ user.domaineactivite }}</p>
+            <p>Expérience professionnelle : {{ user.exppro }} ans</p>
+            {# <p>Votre forfait expire le : {{ user.expirationabonnement }}</p> #}
+            {% endfor %}
+            <a href="{{path('app_user_modification_id', {id: app.user.id})}}" class="btn btn-primary">Modifier mes informations</a>
+        </div>
+        <div class="mesforma">
+            <h2>Formation</h2>
+            <p>Module en cours :</p>
+            <p>Modules validés :</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
