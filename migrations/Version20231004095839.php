@@ -21,13 +21,13 @@ final class Version20231004095839 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE contenu ADD description LONGTEXT DEFAULT NULL');
-        $this->addSql('ALTER TABLE user CHANGE date_creation date_creation DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', CHANGE date_maj date_maj DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\', CHANGE date_connexion date_connexion DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\', CHANGE expiration_abonnement expiration_abonnement DATE DEFAULT NULL COMMENT \'(DC2Type:date_immutable)\'');
+        $this->addSql('ALTER TABLE user CHANGE date_creation date_creation DATETIME NOT NULL, CHANGE date_maj date_maj DATETIME DEFAULT NULL, CHANGE expiration_abonnement expiration_abonnement DATE DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE contenu DROP description');
-        $this->addSql('ALTER TABLE user CHANGE date_creation date_creation DATETIME NOT NULL, CHANGE date_maj date_maj DATETIME NOT NULL, CHANGE date_connexion date_connexion DATETIME NOT NULL, CHANGE expiration_abonnement expiration_abonnement DATE NOT NULL');
+        $this->addSql('ALTER TABLE user CHANGE date_creation date_creation DATETIME NOT NULL, CHANGE date_maj date_maj DATETIME NOT NULL, CHANGE expiration_abonnement expiration_abonnement DATE NOT NULL');
     }
 }

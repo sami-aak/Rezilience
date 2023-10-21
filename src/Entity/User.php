@@ -7,12 +7,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -45,14 +48,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $exp_pro = null;
 
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-    private \DateTimeImmutable $date_creation;
+    /**
+     * @var \DateTime
+     */
+    #[Gedmo\Timestampable(on: 'create')]
+    #[ORM\Column(name: 'date_creation', type: Types::DATETIME_MUTABLE)]
+    private $date_creation;
 
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
-    private ?\DateTimeImmutable $date_maj = null;
-
-    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
-    private ?\DateTimeImmutable $date_connexion;
+     /**
+     * @var \DateTime
+     */
+    #[Gedmo\Timestampable(on: 'update')]
+    #[ORM\Column(name: 'date_maj', type: Types::DATETIME_MUTABLE)]
+    private $date_maj;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $expiration_abonnement;
@@ -67,9 +75,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $this->transaction = new ArrayCollection();
         $this->module = new ArrayCollection();
-        $this->date_creation = new \DateTimeImmutable();
-        $this->date_maj = new \DateTimeImmutable();
-        $this->date_connexion = new \DateTimeImmutable();
         $this->expiration_abonnement = new \DateTimeImmutable();
     }
 
@@ -203,40 +208,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getDateCreation(): \DateTimeImmutable
+    public function getDateCreation(): \DateTime
     {
         return $this->date_creation;
     }
 
-    public function setDateCreation(\DateTimeImmutable $date_creation): self
-    {
-        $this->date_creation = $date_creation;
-
-        return $this;
-    }
-
-    public function getDateMaj(): ?\DateTimeImmutable
+    public function getDateMaj(): ?\DateTime
     {
         return $this->date_maj;
-    }
-
-    public function setDateMaj(): self
-    {
-        $this->date_maj = new \DateTimeImmutable();
-
-        return $this;
-    }
-
-    public function getDateConnexion(): ?\DateTimeImmutable
-    {
-        return $this->date_connexion;
-    }
-
-    public function setDateConnexion(\DateTimeImmutable $date_connexion): static
-    {
-        $this->date_connexion = $date_connexion;
-
-        return $this;
     }
 
     public function getExpirationAbonnement(): ?\DateTimeImmutable
