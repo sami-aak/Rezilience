@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use DateTime;
 use DateTimeImmutable;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -30,9 +31,6 @@ class UserFixtures extends Fixture
                 'roles' => ['ROLE_ADMIN'],
                 'domaine_activite' => 'marketing',
                 'exp_pro' => 4,
-                'date_creation' => '05-09-2023 12:43:21',
-                'date_maj' => '05-09-2023 12:43:21',
-                'date_connexion' => '05-09-2023 12:43:21',
                 'expiration_abonnement' => '26-12-2023',
             ],
             [
@@ -44,9 +42,6 @@ class UserFixtures extends Fixture
               'roles' => ['ROLE_USER'],
               'domaine_activite' => 'communication',
               'exp_pro' => 5,
-              'date_creation' => '05-09-2023 12:43:21',
-              'date_maj' => '05-09-2023 12:43:21',
-              'date_connexion' => '05-09-2023 12:43:21',
               'expiration_abonnement' => '12-06-2024',
             ],
             [
@@ -58,9 +53,6 @@ class UserFixtures extends Fixture
               'roles' => ['ROLE_USER'],
               'domaine_activite' => 'contrebandier',
               'exp_pro' => 12,
-              'date_creation' => '05-09-2023 12:43:21',
-              'date_maj' => '05-09-2023 12:43:21',
-              'date_connexion' => '05-09-2023 12:43:21',
               'expiration_abonnement' => '05-09-2023',
             ],
         ];
@@ -69,16 +61,13 @@ class UserFixtures extends Fixture
             $user = new User();
             $user->setNom($userData['nom']);
             $user->setPrenom($userData['prenom']);
-            $user->setDateDeNaissance(new \DateTime($userData['date_de_naissance']));
+            $user->setDateDeNaissance(new DateTime($userData['date_de_naissance']));
             $user->setEmail($userData['email']);
             $user->setRoles($userData['roles']);
             $password = $this->hasher->hashPassword($user, $userData['password']);
             $user->setPassword($password);
             $user->setDomaineActivite($userData['domaine_activite']);
             $user->setExpPro($userData['exp_pro']);
-            $user->setDateCreation(new DateTimeImmutable($userData['date_creation']));
-            // $user->setDateMaj(new DateTimeImmutable($userData['date_maj']));
-            $user->setDateConnexion(new DateTimeImmutable($userData['date_connexion']));
             $user->setExpirationAbonnement(new DateTimeImmutable($userData['expiration_abonnement']));
 
             $manager->persist($user);
